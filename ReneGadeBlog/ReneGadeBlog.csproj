@@ -276,6 +276,32 @@
     <Content Include="App_Plugins\Analytics\profile.config" />
     <Content Include="App_Plugins\Analytics\package.manifest" />
     <Content Include="App_Plugins\Analytics\account.config" />
+    <Content Include="css\ContactPage.css.map" />
+    <Content Include="css\ContactPage.less" />
+    <Content Include="css\fonts\fontawesome-webfont.eot" />
+    <Content Include="css\fonts\fontawesome-webfont.ttf" />
+    <Content Include="css\fonts\fontawesome-webfont.woff" />
+    <Content Include="css\fonts\fontawesome-webfont.woff2" />
+    <Content Include="css\fonts\FontAwesome.otf" />
+    <Content Include="css\FrontPage.css.map" />
+    <Content Include="css\FrontPage.less" />
+    <Content Include="css\Navigation.css.map" />
+    <Content Include="css\Navigation.less" />
+    <Content Include="css\Page.css.map" />
+    <Content Include="css\Page.less" />
+    <Content Include="css\Sidebar.css.map" />
+    <Content Include="css\Sidebar.less" />
+    <Content Include="css\StyleSheet.css.map" />
+    <Content Include="css\StyleSheet.less" />
+    <Content Include="css\Styling.css.map" />
+    <Content Include="css\Styling.less" />
+    <Content Include="Views\ContactPage.cshtml" />
+    <Content Include="Views\FrontPage.cshtml" />
+    <Content Include="Views\_Layout.cshtml" />
+    <Content Include="Views\Partials\_Comments.cshtml" />
+    <Content Include="Views\Partials\_Navigation.cshtml" />
+    <Content Include="Views\Partials\_Sidebar.cshtml" />
+    <Content Include="Views\BlogPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -346,8 +372,34 @@
     <Content Include="App_Plugins\Analytics\lib\momentjs\moment.js" />
     <Content Include="App_Plugins\Analytics\lib\momentjs\moment.min.js" />
     <Content Include="Config\grid.editors.config.js" />
+    <Content Include="css\ContactPage.css" />
+    <Content Include="css\ContactPage.min.css" />
+    <Content Include="css\fonts\fontawesome-webfont.svg" />
+    <Content Include="css\FrontPage.css" />
+    <Content Include="css\FrontPage.min.css" />
+    <Content Include="css\Navigation.css" />
+    <Content Include="css\Navigation.min.css" />
+    <Content Include="css\Page.css" />
+    <Content Include="css\Page.min.css" />
+    <Content Include="css\Sidebar.css" />
+    <Content Include="css\Sidebar.min.css" />
+    <Content Include="css\StyleSheet.css" />
+    <Content Include="css\StyleSheet.min.css" />
+    <Content Include="css\Styling.css" />
+    <Content Include="css\Styling.min.css" />
+    <Content Include="css\Vendor\bootstrap-grid.min.css" />
+    <Content Include="css\Vendor\font-awesome.min.css" />
+    <Content Include="css\Vendor\normalize.css" />
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="media\bjork-edited.jpg" />
+    <Content Include="media\folketinget-bw.jpg" />
+    <Content Include="media\folketinget.jpg" />
+    <Content Include="media\Rene_Gade-Fotograf_Steen_Brogaard.jpg" />
+    <Content Include="scripts\main.js" />
+    <Content Include="scripts\plugins.js" />
+    <Content Include="scripts\vendor\jquery-1.11.3.min.js" />
+    <Content Include="scripts\vendor\modernizr-2.8.3.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

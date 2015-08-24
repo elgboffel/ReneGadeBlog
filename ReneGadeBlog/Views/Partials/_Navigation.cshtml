@@ -1,0 +1,71 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+
+@{
+    var home = CurrentPage.Site();
+    var selection = CurrentPage.Site().Children.Where("Visible");
+
+    //Recursive cropper image
+    var nodeWithCropper = Model.Content.AncestorsOrSelf().First(x => x.HasValue("avatar"));
+}
+
+
+<nav id="navigation">
+    <div class="nav-inner">
+        <div class="logo">
+            <h1>@home.companyName</h1>
+        </div>
+        <div class="portrait overlay">
+            <img src='@nodeWithCropper.GetCropUrl(propertyAlias: "avatar", width: 120, height: 120)' alt="" />
+        </div>
+
+
+        <ul>
+            @if (home.showInNavigation == true && home.HasValue("alternateNavigationName"))
+            {
+
+                <li class="@(home.IsEqual(CurrentPage) ? "current" : null)">
+                    <a href="@home.Url">@home.alternateNavigationName</a>
+                </li>
+            }
+            else
+            {
+                <li class="@(home.IsEqual(CurrentPage) ? "current" : null)">
+                    <a href="@home.Url">@home.Name</a>
+                </li>
+            }
+
+            @foreach (var item in selection.Where("showInNavigation == true"))
+            {
+                if (item.DocumentTypeAlias != "DropdownMenuLinks")
+                {
+                    <li class="@(item.IsAncestorOrSelf(CurrentPage) ? "current" : null)">
+                        <a href="@item.Url">@item.Name</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="sub">
+                        <a href="#">@item.Name <span>+</span></a>
+
+                        @if (item.HasValue("relatedLinks") && item.relatedLinks.ToString().Length > 2)
+                        {
+                            <ul>
+                                @foreach (var link in item.relatedLinks)
+                                {
+                                    var linkUrl = (bool)link.isInternal ? Umbraco.NiceUrl(link.Value<int>("internal")) : link.link;
+                                    var linkTarget = (bool)link.newWindow ? "_blank" : null;
+                                    <li><a href="@linkUrl" target="@linkTarget">@link.caption</a></li>
+                                }
+                            </ul>
+                        }
+                    </li>
+                }
+
+            }
+        </ul>
+
+
+
+    </div>
+</nav>

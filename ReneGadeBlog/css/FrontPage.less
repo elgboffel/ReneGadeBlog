@@ -1,0 +1,83 @@
+﻿section#frontpage {
+
+    header.header {
+        color: #fff;
+        padding: 35px 50px;
+
+        h1 {
+            font-weight: 400;
+        }
+
+        h2 {
+            font-weight: 300;
+        }
+    }
+
+
+    .list-items {
+        padding: 0;
+        background-color: #fff;
+        height: 100%;
+
+        .list-items-inner {
+        }
+
+        aside.post {
+            padding: 25px 30px;
+            -moz-transition: all 0.2s ease-in-out 0s;
+            -o-transition: all 0.2s ease-in-out 0s;
+            -webkit-transition: all 0.2s ease-in-out 0s;
+            transition: all 0.2s ease-in-out 0s;
+
+            &:hover {
+                background-color: #f1f1f1;
+
+                .comment {
+                    background-color: #fff;
+
+                    &::before {
+                        border-right: 15px solid #fff;
+                    }
+                }
+            }
+
+            h6 {
+                margin: 0;
+                color: #333;
+                font-size: 13px;
+
+                a {
+                    background-color: #0f0;
+                    color: #fff;
+                    padding: 2px 5px;
+                    margin: 0 3px;
+                }
+            }
+
+            h3 {
+                font-size: 21px;
+                line-height: 23px;
+            }
+
+            a {
+                color: #333;
+                font-weight: 700;
+                text-transform: uppercase;
+                -moz-transition: all 0.2s ease-in-out 0s;
+                -o-transition: all 0.2s ease-in-out 0s;
+                -webkit-transition: all 0.2s ease-in-out 0s;
+                transition: all 0.2s ease-in-out 0s;
+
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    /* Comments*/
+
+    .comment-hide {
+        display: none;
+    }
+}

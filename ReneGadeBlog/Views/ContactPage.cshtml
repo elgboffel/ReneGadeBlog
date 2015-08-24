@@ -1,0 +1,58 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "_Layout.cshtml";
+}
+<section id="contact-page">
+    <header class="header col-lg-12">
+        <div class="google-map"></div>
+    </header>
+
+    <div class="container-wrap">
+        <div class="content">
+            <div class="col-lg-12">
+                <h1>@CurrentPage.Name</h1>
+                <h2>Ut fusce varius nisl ac ipsum gravida vel pretium tellus tincidunt integer eu augue augue nunc elit dolor, luctus placerat.</h2>
+            </div>
+            <div class="col-lg-6">
+                <adress>
+                    <h3>Adresse</h3>
+                    <p>Consectetur adipiscing elit fusce vel.</p>
+                    <h3>Telefon</h3>
+                    <p>Consectetur adipiscing elit fusce vel.</p>
+                    <h3>Mail</h3>
+                    <p>Consectetur adipiscing elit fusce vel.</p>
+                </adress>
+                <div class="social-icons">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <form>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input required type="text" placeholder="Navn" value="" />
+                        </div>
+                        <div class="col-md-6">
+                            <input required type="text" placeholder="Mail" value="" />
+                        </div>
+                        <div class="col-md-6">
+                            <input required type="text" placeholder="Emne" value="" />
+                        </div>
+                        <div class="col-md-12">
+                            <textarea required name="message" cols="8" rows="6" placeholder="Skriv din besked her"></textarea>
+                        </div>
+
+                        <div class="col-md-12">
+                            <button class="button">Send besked</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,17 @@
+﻿section#contact-page header.header {
+  padding: 0;
+}
+section#contact-page .container-wrap {
+  background-color: #fff;
+}
+section#contact-page .container-wrap .content {
+  float: left;
+  padding: 35px;
+}
+section#contact-page .container-wrap h2 {
+  font-weight: 400;
+}
+section#contact-page .container-wrap .social-icons {
+  padding: 25px 0;
+}
+/*# sourceMappingURL=ContactPage.css.map */

@@ -1,0 +1,112 @@
+﻿ /* Sidebar */
+        .sidebar {
+            background-color: #f1f1f1;
+            height: auto;
+
+            .inner {
+                padding: 25px 30px;
+
+                aside {
+
+                    padding: 10px 0;
+
+                    h2 {
+                        font-weight: 700;
+                    }
+
+                    p {
+                        font-size: 16px;
+                    }
+                }
+
+                aside.search {
+
+                    form {
+                        position: relative;
+
+                        input[type="text"] {
+                            width: 100%;
+                            height: 36px;
+                            padding: 0px 36px 0px 15px;
+                            border: 1px solid #E7EAEB;
+                            font-size: 14px;
+
+                            
+
+                            &:focus {
+                                
+                                ~ button {
+                                    
+                                    color: #0f0;
+                                }
+                                
+                                                             
+                            }
+                        }
+
+                        button {
+                            position: absolute;
+                            padding: 0;
+                            margin: 0;
+                            border: medium none;
+                            outline: medium none;
+                            width: 36px;
+                            height: 36px;
+                            line-height: 36px;
+                            top: 10px;
+                            right: 0px;
+                            text-align: center;
+                            font-size: 12px;
+                            color: #000;
+                            border-top: 0 none;
+                            border-left: 1px solid #F1F1F1;
+                            background-color: transparent;
+
+                            -moz-transition: all 0.2s ease-in-out 0s;
+                            -o-transition: all 0.2s ease-in-out 0s;
+                            -webkit-transition: all 0.2s ease-in-out 0s;
+                            transition: all 0.2s ease-in-out 0s;
+                        }
+                       
+                    }
+                }
+
+                aside.category {
+                    ul {
+                        li {
+                            width: 100%;
+                            padding: 4px 0;
+                        }
+                    }
+
+                    a {
+
+                        font-size: 16px;
+
+                        -moz-transition: all 0.2s ease-in-out 0s;
+                        -o-transition: all 0.2s ease-in-out 0s;
+                        -webkit-transition: all 0.2s ease-in-out 0s;
+                        transition: all 0.2s ease-in-out 0s;
+
+                        &:hover {
+                            color: #fff;
+                        }
+                    }
+
+                    span {
+                        position: relative;
+                        float: right;
+                    }
+                }
+
+                aside.recent-posts {
+
+                    a {
+                        &:hover {
+                            color: #333;
+                        }
+                    }
+                }
+            }
+        }
+        /* Sidebar End */

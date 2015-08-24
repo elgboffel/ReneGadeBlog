@@ -1,0 +1,65 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "_Layout.cshtml";
+    
+    var item = CurrentPage;
+}
+<section id="page">
+    <header class="header col-lg-12">
+        <div class="media-photo">
+            <img class="img-responsive" src="@Model.Content.GetCropUrl(propertyAlias: "headerImage", width: 1000, height: 400)" alt="Alternate Text" />
+        </div>
+    </header>
+    <div class="container-wrap">
+
+        <!-- Page Content-->
+        <div class="col-md-8 col-sm-7 page-content">
+            <article>
+                <header>
+                    <h6 class="meta">
+                        <span>Skrevet af: @item.CreatorName</span>
+                        <span>@item.CreateDate.ToString("dd").@item.CreateDate.ToString("MM").@item.CreateDate.ToString("yyyy")</span>
+                        <a href="">Digital</a>
+                        <a href="">Event</a>
+                        <span>Kommentarer: 2</span>
+                    </h6>
+                    <h1>@item.Name</h1>
+                    <h2>@item.subtitle</h2>
+                </header>
+
+                @item.bodyText
+
+                <div class="tags">
+                    <h3>Tags</h3>
+                    <ul>
+                        <li>
+                            <a href="">Ipsum</a>
+                        </li>
+                        <li>
+                            <a href="">Dolor</a>
+                        </li>
+                        <li>
+                            <a href="">Sit</a>
+                        </li>
+                        <li>
+                            <a href="">Amen</a>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+            
+
+            @{Html.RenderPartial("_Comments");}
+
+        </div>
+        <!-- Page Content End -->
+
+        <!-- Sidebar -->
+        <div class="col-md-4 col-sm-5 sidebar">
+
+            @{Html.RenderPartial("_Sidebar");}
+
+        </div>
+        <!-- Sidebar End -->
+    </div>
+</section>
