@@ -1,0 +1,47 @@
+﻿@model ReneGadeBlog.Models.CommentFormViewModel
+
+@using ClientDependency.Core.Mvc
+
+@{
+
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+    Html.RequiresJs("/umbraco_client/Application/JQuery/jquery.validate.min.js");
+    Html.RequiresJs("/umbraco_client/Application/JQuery/jquery.validate.unobtrusive.min.js");
+
+
+}
+
+@if (TempData["success"] == null)
+{
+    using (Html.BeginUmbracoForm<ReneGadeBlog.Controllers.CommentFormSurfaceController>("HandleSubmitForm"))
+    {
+
+        <div class="row">
+            <div class="col-md-12">
+                <p>Laoreet ac, aliquam sit amet justo nunc tempor, metus vel placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante fusce non varius purus aenean nec magna felis fusce vestibulum.</p>
+            </div>
+
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.FirstName, new { placeholder = "Fornavn" })
+                @Html.ValidationMessageFor(m => m.FirstName)
+            </div>
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.LastName, new { placeholder = "Efternavn"})
+                @Html.ValidationMessageFor(m => m.LastName)
+            </div>
+            <div class="col-md-12">
+                @Html.TextAreaFor(m => m.Comment, new { placeholder = "Skriv din kommentar her" })
+                @Html.ValidationMessageFor(m => m.Comment)
+            </div>
+
+            <div class="col-md-12">
+                <button type="submit" class="button">Slå op</button>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <p>Din besked er Gemt</p>
+}

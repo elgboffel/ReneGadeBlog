@@ -1,4 +1,6 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using ClientDependency.Core.Mvc
+
 @{
     Layout = null;
 
@@ -42,6 +44,8 @@
 
     <script src="~/scripts/plugins.js"></script>
     <script src="~/scripts/main.js"></script>
+
+    @Html.RenderJsHere()
 
    
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

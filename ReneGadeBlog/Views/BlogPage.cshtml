@@ -1,8 +1,10 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = "_Layout.cshtml";
-    
+
     var item = CurrentPage;
+
+    var comments = CurrentPage.Children;
 }
 <section id="page">
     <header class="header col-lg-12">
@@ -11,7 +13,6 @@
         </div>
     </header>
     <div class="container-wrap">
-
         <!-- Page Content-->
         <div class="col-md-8 col-sm-7 page-content">
             <article>
@@ -19,9 +20,19 @@
                     <h6 class="meta">
                         <span>Skrevet af: @item.CreatorName</span>
                         <span>@item.CreateDate.ToString("dd").@item.CreateDate.ToString("MM").@item.CreateDate.ToString("yyyy")</span>
-                        <a href="">Digital</a>
-                        <a href="">Event</a>
-                        <span>Kommentarer: 2</span>
+                        @if (CurrentPage.HasValue("categories"))
+                        {
+
+
+                            String[] categories = CurrentPage.GetPropertyValue("categories").Split(',');
+                            foreach (var cat in categories)
+                            {
+                                <a href="/kategorier/kategori?@cat">@cat</a>
+                            }
+
+
+                        }
+                        <span>Kommentarer: @comments.Count()</span>
                     </h6>
                     <h1>@item.Name</h1>
                     <h2>@item.subtitle</h2>
@@ -29,36 +40,33 @@
 
                 @item.bodyText
 
-                <div class="tags">
-                    <h3>Tags</h3>
-                    <ul>
-                        <li>
-                            <a href="">Ipsum</a>
-                        </li>
-                        <li>
-                            <a href="">Dolor</a>
-                        </li>
-                        <li>
-                            <a href="">Sit</a>
-                        </li>
-                        <li>
-                            <a href="">Amen</a>
-                        </li>
-                    </ul>
-                </div>
+                @if (CurrentPage.HasValue("tags"))
+                {
+                    <div class="tags">
+                        <h3>Tags</h3>
+                        <ul>
+                            @{
+                                String[] tags = CurrentPage.GetPropertyValue("tags").Split(',');
+                                foreach (var tag in tags)
+                                {
+                                    <li>
+                                        <a href="/tags/tag?@tag">@tag</a>
+                                    </li>
+
+                                }
+                            }
+                        </ul>
+                    </div>
+                }
             </article>
-            
+
 
             @{Html.RenderPartial("_Comments");}
-
         </div>
         <!-- Page Content End -->
-
         <!-- Sidebar -->
         <div class="col-md-4 col-sm-5 sidebar">
-
             @{Html.RenderPartial("_Sidebar");}
-
         </div>
         <!-- Sidebar End -->
     </div>

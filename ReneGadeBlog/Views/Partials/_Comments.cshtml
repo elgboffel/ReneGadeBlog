@@ -1,53 +1,39 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 
+@{
+    var comments = CurrentPage.Children;
+}
+
 <!-- Comments -->
 <div class="page-comments">
     <header>
-        <h2>Kommentarer <span>(2)</span></h2>
+        <h2>Kommentarer <span>(@comments.Count())</span></h2>
     </header>
 
-    <form>
-        <div class="row">
-            <div class="col-md-12">
-                <p>Laoreet ac, aliquam sit amet justo nunc tempor, metus vel placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante fusce non varius purus aenean nec magna felis fusce vestibulum.</p>
-            </div>
-
-            <div class="col-md-6">
-                <input required type="text" placeholder="Navn" value="" />
-            </div>
-            <div class="col-md-6">
-                <input required type="text" placeholder="Mail" value="" />
-            </div>
-            <div class="col-md-12">
-                <textarea required name="message" cols="8" rows="6" placeholder="Skriv dit opslag her"></textarea>
-            </div>
-
-            <div class="col-md-12">
-                <button class="button">Slå op</button>
-            </div>
-        </div>
-    </form>
+    @Html.Action("Index", "CommentFormSurface")
 
     <ul class="comments-list col-md-12">
-        <li class="comment">
-            <div class="meta">
-                <h3>Johnny Kristensen</h3>
-                <span>23. Aug 2015 - 21:37</span>
-            </div>
-            <div class="message">
-                <p>Laoreet ac, aliquam sit amet justo nunc tempor, metus vel placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante fusce non varius purus aenean nec magna felis fusce vestibulum.</p>
-            </div>
-        </li>
-        <li class="comment">
-            <div class="meta">
-                <h3>René Gade</h3>
-                <span>23. Aug 2015 - 21:45</span>
-            </div>
-            <div class="message">
-                <p>Laoreet ac, aliquam sit amet justo nunc tempor, metus vel placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante fusce non varius purus aenean nec magna felis fusce vestibulum.</p>
-            </div>
-        </li>
-    </ul>
 
+        @foreach (var item in comments)
+        {
+            if (item.HasValue("firstName"))
+            {
+                <li class="comment">
+                    <div class="meta">
+                        <h3>@item.firstName @item.lastName</h3>
+                        <span>@item.CreateDate.ToString("dd"). @item.CreateDate.ToString("MMM") @item.CreateDate.ToString("yyyy") - @item.CreateDate.ToString("%H"):@item.CreateDate.ToString("%m")</span>
+                    </div>
+                    <div class="message">
+                            @if (item.comment != "")
+                            {
+                                var output = (umbraco.library.ReplaceLineBreaks(@item.comment));
+                                <p>@Html.Raw(@output)</p>
+                            }
+                    </div>
+                </li>
+            }
+        }
+    </ul>
 </div>
+
 <!-- Comments End -->

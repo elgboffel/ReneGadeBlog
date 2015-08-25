@@ -36,29 +36,30 @@
                                 @item.subtitle
                             </p>
                             <a href="@item.Url" class="hover-btn">Læs Mere</a>
-                            <a href="" class="hover-btn pull-right comment-toggle">Se kommentarer (2)</a>
+                            <a href="javascript:void(0)" class="hover-btn pull-right comment-toggle">Se kommentarer (@item.Children.Count())</a>
                         </div>
                     </div>
                     <div class="row comment-hide">
                         <ul class="comments-list col-md-11">
-                        <li class="comment">
-                            <div class="meta">
-                                <h3>Johnny Kristensen</h3>
-                                <span>23. Aug 2015 - 21:37</span>
-                            </div>
-                            <div class="message">
-                                <p>Laoreet ac, aliquam sit amet justo nunc tempor, metus vel placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante fusce non varius purus aenean nec magna felis fusce vestibulum.</p>
-                            </div>
-                        </li>
-                        <li class="comment">
-                            <div class="meta">
-                                <h3>René Gade</h3>
-                                <span>23. Aug 2015 - 21:45</span>
-                            </div>
-                            <div class="message">
-                                <p>Laoreet ac, aliquam sit amet justo nunc tempor, metus vel placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante fusce non varius purus aenean nec magna felis fusce vestibulum.</p>
-                            </div>
-                        </li>
+                            @foreach (var comment in item.Children)
+                            {
+                                if (comment.HasValue("firstName"))
+                                {
+                                    <li class="comment">
+                                        <div class="meta">
+                                            <h3>@comment.firstName @comment.lastName</h3>
+                                            <span>@comment.CreateDate.ToString("dd"). @comment.CreateDate.ToString("MMM") @comment.CreateDate.ToString("yyyy") - @comment.CreateDate.ToString("%H"):@comment.CreateDate.ToString("%m")</span>
+                                        </div>
+                                        <div class="message">
+                                            @if (comment.comment != "")
+                                            {
+                                                var output = (umbraco.library.ReplaceLineBreaks(@comment.comment));
+                                                <p>@Html.Raw(@output)</p>
+                                            }
+                                        </div>
+                                    </li>
+                                }
+                            }
                         </ul>
                     </div>
                 </aside>

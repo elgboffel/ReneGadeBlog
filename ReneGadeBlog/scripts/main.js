@@ -71,7 +71,7 @@ $('.comment-toggle').on('click', function (event) {
 
     event.preventDefault();
 
-    $('.comment-hide').slideToggle('slow');
+    $(this).closest('.post').find('.comment-hide').slideToggle('slow');
    
 });
 
