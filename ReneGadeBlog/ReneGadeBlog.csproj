@@ -303,6 +303,10 @@
     <Content Include="Views\Partials\_Sidebar.cshtml" />
     <Content Include="Views\BlogPage.cshtml" />
     <Content Include="Views\Partials\_CommentForm.cshtml" />
+    <Content Include="Views\ErrorPage.cshtml" />
+    <Content Include="Views\Find.cshtml" />
+    <Content Include="Views\kategorier.cshtml" />
+    <Content Include="Views\tags.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

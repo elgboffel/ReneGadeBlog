@@ -9,9 +9,12 @@
     <header>
         <h2>Kommentarer <span>(@comments.Count())</span></h2>
     </header>
-
-    @Html.Action("Index", "CommentFormSurface")
-
+    <div class="row">
+        <div class="col-md-12">
+            <p>@CurrentPage.Site().FirstChild("BlogList").commentExplanation</p>
+        </div>
+        @Html.Action("Index", "CommentFormSurface")
+    </div>
     <ul class="comments-list col-md-12">
 
         @foreach (var item in comments)

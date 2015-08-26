@@ -1,6 +1,8 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = "_Layout.cshtml";
+    
+    var root = CurrentPage.Site();
 }
 <section id="contact-page">
     <header class="header col-lg-12">
@@ -11,26 +13,27 @@
         <div class="content">
             <div class="col-lg-12">
                 <h1>@CurrentPage.Name</h1>
-                <h2>Ut fusce varius nisl ac ipsum gravida vel pretium tellus tincidunt integer eu augue augue nunc elit dolor, luctus placerat.</h2>
+                <h2>@CurrentPage.subtitle</h2>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-5">
                 <adress>
                     <h3>Adresse</h3>
-                    <p>Consectetur adipiscing elit fusce vel.</p>
+                    <p>@root.location</p>
+                    <p>@root.address</p>
                     <h3>Telefon</h3>
-                    <p>Consectetur adipiscing elit fusce vel.</p>
+                    <p>@root.phone</p>
                     <h3>Mail</h3>
-                    <p>Consectetur adipiscing elit fusce vel.</p>
+                    <p>@root.contactMail</p>
                 </adress>
                 <div class="social-icons">
                     <ul>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="@root.facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="@root.linkedin" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="@root.twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-7">
                 <form>
                     <div class="row">
                         <div class="col-md-6">

@@ -27,7 +27,7 @@
                             String[] categories = CurrentPage.GetPropertyValue("categories").Split(',');
                             foreach (var cat in categories)
                             {
-                                <a href="/kategorier/kategori?@cat">@cat</a>
+                                <a href="/kategorier/?=@cat">@cat</a>
                             }
 
 
@@ -50,7 +50,7 @@
                                 foreach (var tag in tags)
                                 {
                                     <li>
-                                        <a href="/tags/tag?@tag">@tag</a>
+                                        <a href="/tags/?=@tag">@tag</a>
                                     </li>
 
                                 }

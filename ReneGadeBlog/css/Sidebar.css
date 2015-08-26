@@ -68,7 +68,7 @@
   position: relative;
   float: right;
 }
-.sidebar .inner aside.recent-posts a:hover {
+.sidebar .inner aside.recent-posts .post:hover a {
   color: #333;
 }
 /*# sourceMappingURL=Sidebar.css.map */

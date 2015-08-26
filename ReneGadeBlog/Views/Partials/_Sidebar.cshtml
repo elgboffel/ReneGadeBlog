@@ -1,46 +1,89 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 
+@{
+    var root = CurrentPage.Site();
+
+    var blogList = root.FirstChild("BlogList").Children;
+}
+
 <div class="inner">
-    <aside>
-        <header>
-            <h2>Overskrift</h2>
-        </header>
-        <p>Scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel placerat suscipit, orci nisl iaculis eros.</p>
-    </aside>
+    @if (CurrentPage.Url != "/")
+    {
+        <aside>
+            <header>
+                <h2>@root.title</h2>
+            </header>
+            <p>@root.subtitle</p>
+        </aside>
+    }
+
+    @if (CurrentPage.Url == "/")
+    {
+        <aside>
+            <header>
+                <h2>Kontakt</h2>
+                <p>@root.location</p>
+                <p>@root.address</p>
+                <p>@root.phone</p>
+                <p>@root.contactMail</p>
+                
+            </header>
+        </aside>
+    }
+    
     <aside>
         <div class="social-icons">
             <ul>
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="@root.facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="@root.linkedin" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="@root.twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
             </ul>
         </div>
     </aside>
-    
+
     <aside class="category">
         <header>
             <h2>Kategorier</h2>
         </header>
         <ul>
-            <li><a href="#" class="hover-btn">content</a><span>(25)</span></li>
-            <li><a href="#" class="hover-btn">content</a><span>(17)</span></li>
-            <li><a href="#" class="hover-btn">content</a><span>(13)</span></li>
+            @{
+
+                var catsFromService = UmbracoContext.Application.Services.TagService.GetAllContentTags("categories").OrderByDescending(t => t.NodeCount);
+                foreach (var cat in catsFromService)
+                {
+                    <li>
+                        <a href="/kategorier/?=@cat.Text" title="@cat.Text" class="hover-btn">@cat.Text</a>
+                        <span>(@cat.NodeCount)</span>
+                    </li>
+                }
+            }
         </ul>
     </aside>
     <aside class="search">
-        <form>
-            <input type="text" value="" placeholder="Find" />
+        <form action="/find/" method="get">
+            <input type="text" name="søg" placeholder="Skriv hvad du søger.." />
             <button><i class="fa fa-search"></i></button>
         </form>
     </aside>
-    <aside class="recent-posts">
-        <header>
-            <h2>Seneste opslag</h2>
-        </header>
-        <a href="">
-            <h3>overskrift</h3>
-            <p>Ut fusce varius nisl ac ipsum gravida vel pretium tellus tincidunt integer eu augue augue nunc elit dolor, luctus placerat.</p>
-            <span><i class="fa fa-calendar"></i> 08 jun 2015</span>
-        </a>
-    </aside>
+
+    @if (CurrentPage.Url != "/")
+    {
+
+        <aside class="recent-posts">
+            <header>
+                <h2>Seneste opslag</h2>
+            </header>
+            @foreach (var item in blogList.OrderBy("CreateDate desc").Take(3))
+            {
+                <div class="post">
+                    <a href="@item.Url">
+                        <h3>@item.Name</h3>
+                        <p>@Umbraco.Truncate(item.subtitle, 100)</p>
+                        <span><i class="fa fa-calendar"></i> @item.CreateDate.ToString("dd") @item.CreateDate.ToString("MMM") @item.CreateDate.ToString("yyyy")</span>
+                    </a>
+                </div>
+            }
+
+        </aside>
+    }
 </div>

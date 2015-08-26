@@ -23,17 +23,27 @@
                 <aside class="post">
                     <header>
                         <h6>
-                            <a href="">Digital</a>
-                            <a href="">Event</a>
+                            @if (item.HasValue("categories"))
+                            {
+
+
+                                String[] categories = item.GetPropertyValue("categories").Split(',');
+                                foreach (var cat in categories)
+                                {
+                                    <a href="/kategorier/?=@cat">@cat</a>
+                                }
+
+
+                            }
                             <span> / @item.CreateDate.ToString("dd").@item.CreateDate.ToString("MM").@item.CreateDate.ToString("yyyy")</span>
                         </h6>
                     </header>
                     <div class="content">
                         <div class="inner">
-                                <h3>@item.Name</h3>
+                            <a href="@item.Url"><h3>@item.Name</h3></a>
                             
                             <p>
-                                @item.subtitle
+                                @Umbraco.Truncate(item.subtitle, 300)
                             </p>
                             <a href="@item.Url" class="hover-btn">Læs Mere</a>
                             <a href="javascript:void(0)" class="hover-btn pull-right comment-toggle">Se kommentarer (@item.Children.Count())</a>

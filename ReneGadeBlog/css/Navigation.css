@@ -1,19 +1,46 @@
 ﻿#navigation {
   position: fixed;
   top: 0;
-  right: 50px;
+  right: 35px;
 }
 #navigation .nav-inner {
   position: relative;
   background-color: #fff;
-  width: 170px;
+  width: 200px;
+}
+#navigation .logo {
+  position: relative;
+  width: 100%;
+  height: 75px;
+  display: block;
 }
 #navigation .logo h1 {
-  font-size: 24px;
-  font-weight: 400;
-  text-align: center;
-  padding: 10px 0;
+  position: absolute;
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: 700;
+  top: 12px;
+  right: 20px;
+  padding: 0;
   margin: 0;
+}
+#navigation .logo img {
+  position: absolute;
+  top: 20px;
+  left: 15px;
+  width: 22px;
+  margin: 0;
+}
+#navigation .logo h2 {
+  position: absolute;
+  text-transform: uppercase;
+  top: 42px;
+  right: 20px;
+  font-size: 11.6px;
+  font-weight: 700;
+  color: #9f9f9f;
+  margin: 0;
+  padding: 0;
 }
 #navigation .portrait {
   display: block;
@@ -83,7 +110,7 @@
   height: 30px;
   line-height: 30px;
   white-space: nowrap;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   color: #333;
 }

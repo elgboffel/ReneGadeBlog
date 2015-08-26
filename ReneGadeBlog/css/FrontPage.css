@@ -46,6 +46,10 @@ section#frontpage .list-items aside.post h6 a {
 section#frontpage .list-items aside.post h3 {
   font-size: 21px;
   line-height: 23px;
+  color: #333;
+}
+section#frontpage .list-items aside.post h3:hover {
+  color: #333;
 }
 section#frontpage .list-items aside.post a {
   color: #333;

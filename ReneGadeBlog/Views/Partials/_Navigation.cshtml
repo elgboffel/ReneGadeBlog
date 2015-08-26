@@ -13,7 +13,10 @@
 <nav id="navigation">
     <div class="nav-inner">
         <div class="logo">
-            <h1>@home.companyName</h1>
+            @{ var image = Umbraco.Media(home.blogLogo);}
+            <img src="@image.Url" alt="@image.Url" />
+            <h1>@home.blogName</h1>
+            <h2>Vestjyllands Storkreds</h2>
         </div>
         <div class="portrait overlay">
             <img src='@nodeWithCropper.GetCropUrl(propertyAlias: "avatar", width: 120, height: 120)' alt="" />

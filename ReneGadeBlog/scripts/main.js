@@ -11,7 +11,7 @@ $(document).ready(function () {
    
     
     $('a').on('click', function (event) {
-        if (!$(this).hasClass('comment-toggle') && !$(this).parents('.sub').length) {
+        if (!$(this).hasClass('comment-toggle') && !$(this).parents('.sub').length && !$(this).parents('.social-icons')) {
 
             event.preventDefault();
 
