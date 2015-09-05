@@ -14,7 +14,6 @@ section#frontpage header.header h2 {
 section#frontpage .list-items {
   padding: 0;
   background-color: #fff;
-  height: 100%;
 }
 section#frontpage .list-items aside.post {
   padding: 25px 30px;

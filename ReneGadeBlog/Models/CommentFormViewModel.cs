@@ -8,7 +8,6 @@ namespace ReneGadeBlog.Models
 {
     public class CommentFormViewModel
     {
-        
 
         [Required]
         public string FirstName { get; set; }

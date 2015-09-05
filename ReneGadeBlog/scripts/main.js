@@ -1,3 +1,6 @@
+
+
+
 /********************************
     Page Fade
  *******************************/
@@ -73,6 +76,17 @@ $('.comment-toggle').on('click', function (event) {
 
     $(this).closest('.post').find('.comment-hide').slideToggle('slow');
    
+});
+
+/********************************
+    Sidebar min height
+ *******************************/
+$(document).ready(function () {
+    var windowHeight = $(window).height();
+    var headerHeight = $('header.header').height();
+
+    $('.sidebar').height(windowHeight - 195.3);
+
 });
 
 
