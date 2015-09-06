@@ -16,7 +16,6 @@
         <!-- Page Content-->
         <div class="col-md-8 col-sm-7 page-content">
             <article>
-                @item.Id
                 <header>
                     <h6 class="meta">
                         <span>Skrevet af: @item.CreatorName</span>
@@ -43,7 +42,7 @@
 
                 @if (CurrentPage.HasValue("tags"))
                 {
-                    <div class="tags">
+                    <div class="tags col-lg-7">
                         <h3>Tags</h3>
                         <ul>
                             @{
@@ -59,6 +58,16 @@
                         </ul>
                     </div>
                 }
+                
+                <div class="social-icons col-lg-5">
+                    <h3>Del</h3>
+                    <ul>
+                        <li id="twitter" data-url="http://www.renegade.works@(item.Url)" data-title="Del på Twitter"></li>
+                        <li id="facebook" data-url="http://www.renegade.works@(item.Url)" data-title="Del på Facebook"></li>
+                        <li id="google" data-url="http://www.renegade.works@(item.Url)" data-title="Del på LinkedIn"></li>
+                    </ul>
+                </div>
+
             </article>
 
 

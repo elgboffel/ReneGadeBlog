@@ -245,6 +245,45 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\ContactPage.css">
+      <DependentUpon>ContactPage.less</DependentUpon>
+    </Content>
+    <Content Include="css\ContactPage.min.css">
+      <DependentUpon>ContactPage.css</DependentUpon>
+    </Content>
+    <Content Include="css\FrontPage.css">
+      <DependentUpon>FrontPage.less</DependentUpon>
+    </Content>
+    <Content Include="css\Navigation.css">
+      <DependentUpon>Navigation.less</DependentUpon>
+    </Content>
+    <Content Include="css\Navigation.min.css">
+      <DependentUpon>Navigation.css</DependentUpon>
+    </Content>
+    <Content Include="css\Page.css">
+      <DependentUpon>Page.less</DependentUpon>
+    </Content>
+    <Content Include="css\Page.min.css">
+      <DependentUpon>Page.css</DependentUpon>
+    </Content>
+    <Content Include="css\Sidebar.css">
+      <DependentUpon>Sidebar.less</DependentUpon>
+    </Content>
+    <Content Include="css\Sidebar.min.css">
+      <DependentUpon>Sidebar.css</DependentUpon>
+    </Content>
+    <Content Include="css\StyleSheet.css">
+      <DependentUpon>StyleSheet.less</DependentUpon>
+    </Content>
+    <Content Include="css\StyleSheet.min.css">
+      <DependentUpon>StyleSheet.css</DependentUpon>
+    </Content>
+    <Content Include="css\Styling.css">
+      <DependentUpon>Styling.less</DependentUpon>
+    </Content>
+    <Content Include="css\Styling.min.css">
+      <DependentUpon>Styling.css</DependentUpon>
+    </Content>
     <Content Include="packages.config" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
@@ -300,6 +339,28 @@
     <Content Include="Views\Find.cshtml" />
     <Content Include="Views\kategorier.cshtml" />
     <Content Include="Views\tags.cshtml" />
+    <Content Include="css\Navigation.css.map">
+      <DependentUpon>Navigation.css</DependentUpon>
+    </Content>
+    <Content Include="css\StyleSheet.css.map">
+      <DependentUpon>StyleSheet.css</DependentUpon>
+    </Content>
+    <Content Include="css\Page.css.map">
+      <DependentUpon>Page.css</DependentUpon>
+    </Content>
+    <Content Include="css\ContactPage.css.map">
+      <DependentUpon>ContactPage.css</DependentUpon>
+    </Content>
+    <Content Include="css\Styling.css.map">
+      <DependentUpon>Styling.css</DependentUpon>
+    </Content>
+    <Content Include="Views\AccordionPage.cshtml" />
+    <Content Include="css\Sidebar.css.map">
+      <DependentUpon>Sidebar.css</DependentUpon>
+    </Content>
+    <Content Include="css\FrontPage.css.map">
+      <DependentUpon>FrontPage.css</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

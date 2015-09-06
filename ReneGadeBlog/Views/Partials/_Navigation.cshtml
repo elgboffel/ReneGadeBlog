@@ -9,14 +9,19 @@
     var nodeWithCropper = Model.Content.AncestorsOrSelf().First(x => x.HasValue("avatar"));
 }
 
+<div class="mobile">
+    <a href="#"><i class="fa fa-bars"></i> Menu</a>
+</div>
 
-<nav id="navigation">
+<nav id="navigation" class="not-active">  
+
     <div class="nav-inner">
         <div class="logo">
             @{ var image = Umbraco.Media(home.blogLogo);}
-            <img src="@image.Url" alt="@image.Url" />
-            <h1>@home.blogName</h1>
-            <h2>Vestjyllands Storkreds</h2>
+            <a href="@home.Url">
+                <h1>René Gade <img src="@image.Url" alt="@image.Url" /> MF</h1>
+                <h2>Vestjyllands Storkreds</h2>
+            </a>
         </div>
         <div class="portrait overlay">
             <img src='@nodeWithCropper.GetCropUrl(propertyAlias: "avatar", width: 120, height: 120)' alt="" />

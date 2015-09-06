@@ -13,9 +13,25 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>@CurrentPage.Name</title>
-    <meta name="description" content="">
+    <meta name="description" content="@CurrentPage.subtitle">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- OG meta -->
+    <meta property="og:site_name" content="Café ODA" />
+    <meta property="og:title" content="@CurrentPage.Name" />
+
+    @{
+        if (CurrentPage.HasValue("headerImage"))
+        {
+            <meta property="og:image" content="http://renegade.works@(Model.Content.GetCropUrl(propertyAlias: "headerImage", width: 1000, height: 400))" />
+        }
+       
+        if (CurrentPage.HasValue("text"))
+        {
+            <meta property="og:description" content="@Umbraco.Truncate(CurrentPage.bodyText, 150)" />
+        }
+    }
 
     <!--    Fonts    -->
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700' rel='stylesheet' type='text/css'>
@@ -40,13 +56,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="~/scripts/vendor/jquery-1.11.3.min.js"><\/script>')</script>
 
-    <script src="http://maps.google.com/maps/api/js?sensor=false&language=da" type="text/javascript"></script>
-
     <script src="~/scripts/plugins.js"></script>
-    <script src="~/scripts/main.js"></script>
 
     @Html.RenderJsHere()
 
+    <script src="~/scripts/main.js"></script>
    
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>

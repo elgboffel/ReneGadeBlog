@@ -1,56 +1,56 @@
-﻿section#frontpage {
+﻿section.page {
   /* Comments*/
 }
-section#frontpage header.header {
+section.page header.header {
   color: #fff;
   padding: 35px 50px;
 }
-section#frontpage header.header h1 {
+section.page header.header h1 {
   font-weight: 400;
 }
-section#frontpage header.header h2 {
+section.page header.header h2 {
   font-weight: 300;
 }
-section#frontpage .list-items {
+section.page .list-items {
   padding: 0;
   background-color: #fff;
 }
-section#frontpage .list-items aside.post {
+section.page .list-items aside.post {
   padding: 25px 30px;
   -moz-transition: all 0.2s ease-in-out 0s;
   -o-transition: all 0.2s ease-in-out 0s;
   -webkit-transition: all 0.2s ease-in-out 0s;
   transition: all 0.2s ease-in-out 0s;
 }
-section#frontpage .list-items aside.post:hover {
+section.page .list-items aside.post:hover {
   background-color: #f1f1f1;
 }
-section#frontpage .list-items aside.post:hover .comment {
+section.page .list-items aside.post:hover .comment {
   background-color: #fff;
 }
-section#frontpage .list-items aside.post:hover .comment::before {
+section.page .list-items aside.post:hover .comment::before {
   border-right: 15px solid #fff;
 }
-section#frontpage .list-items aside.post h6 {
+section.page .list-items aside.post h6 {
   margin: 0;
   color: #333;
   font-size: 13px;
 }
-section#frontpage .list-items aside.post h6 a {
+section.page .list-items aside.post h6 a {
   background-color: #0f0;
   color: #fff;
   padding: 2px 5px;
   margin: 0 3px;
 }
-section#frontpage .list-items aside.post h3 {
+section.page .list-items aside.post h3 {
   font-size: 21px;
   line-height: 23px;
   color: #333;
 }
-section#frontpage .list-items aside.post h3:hover {
+section.page .list-items aside.post h3:hover {
   color: #333;
 }
-section#frontpage .list-items aside.post a {
+section.page .list-items aside.post a {
   color: #333;
   font-weight: 700;
   text-transform: uppercase;
@@ -59,10 +59,10 @@ section#frontpage .list-items aside.post a {
   -webkit-transition: all 0.2s ease-in-out 0s;
   transition: all 0.2s ease-in-out 0s;
 }
-section#frontpage .list-items aside.post a:hover {
+section.page .list-items aside.post a:hover {
   color: #fff;
 }
-section#frontpage .comment-hide {
+section.page .comment-hide {
   display: none;
 }
 /*# sourceMappingURL=FrontPage.css.map */

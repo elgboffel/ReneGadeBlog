@@ -1,5 +1,8 @@
-﻿section#contact-page header.header {
+﻿section#contact-page .google-map {
   padding: 0;
+}
+section#contact-page .google-map #map {
+  height: 400px;
 }
 section#contact-page .container-wrap {
   background-color: #fff;

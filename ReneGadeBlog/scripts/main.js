@@ -1,6 +1,3 @@
-
-
-
 /********************************
     Page Fade
  *******************************/
@@ -31,6 +28,53 @@ $(document).ready(function () {
 
     }
 
+    setTimeout(function () {
+
+        /********************************
+            Accordion Height
+         *******************************/
+
+        var sidebarHeight = $('.sidebar').height();
+        var accordionHeight = $('.accordion').height();
+
+        if (sidebarHeight > accordionHeight) {
+
+            $('.accordion').height(sidebarHeight);
+        }
+
+    /********************************
+            Google Map
+         *******************************/
+
+    /*-- GOOGLE MAP --*/
+    function initialize() {
+
+        var myLatLng = new google.maps.LatLng(56.164048, 10.212357),
+            myOptions = {
+                zoom: 15,
+                center: myLatLng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                zoomControl: true,
+                mapTypeControl: false,
+                scaleControl: false,
+                scrollwheel: false,
+                streetViewControl: false,
+                draggable: true,
+                //styles: [{ "featureType": "water", "elementType": "geometry.fill", "stylers": [{ "color": "#d3d3d3" }] }, { "featureType": "transit", "stylers": [{ "color": "#808080" }, { "visibility": "off" }] }, { "featureType": "road.highway", "elementType": "geometry.stroke", "stylers": [{ "visibility": "on" }, { "color": "#b3b3b3" }] }, { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{ "color": "#ffffff" }] }, { "featureType": "road.local", "elementType": "geometry.fill", "stylers": [{ "visibility": "on" }, { "color": "#ffffff" }, { "weight": 1.8 }] }, { "featureType": "road.local", "elementType": "geometry.stroke", "stylers": [{ "color": "#d7d7d7" }] }, { "featureType": "poi", "elementType": "geometry.fill", "stylers": [{ "visibility": "on" }, { "color": "#ebebeb" }] }, { "featureType": "administrative", "elementType": "geometry", "stylers": [{ "color": "#a7a7a7" }] }, { "featureType": "road.arterial", "elementType": "geometry.fill", "stylers": [{ "color": "#ffffff" }] }, { "featureType": "road.arterial", "elementType": "geometry.fill", "stylers": [{ "color": "#ffffff" }] }, { "featureType": "landscape", "elementType": "geometry.fill", "stylers": [{ "visibility": "on" }, { "color": "#efefef" }] }, { "featureType": "road", "elementType": "labels.text.fill", "stylers": [{ "color": "#696969" }] }, { "featureType": "administrative", "elementType": "labels.text.fill", "stylers": [{ "visibility": "on" }, { "color": "#737373" }] }, { "featureType": "poi", "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "featureType": "poi", "elementType": "labels", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.arterial", "elementType": "geometry.stroke", "stylers": [{ "color": "#d6d6d6" }] }, { "featureType": "road", "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, {}, { "featureType": "poi", "elementType": "geometry.fill", "stylers": [{ "color": "#dadada" }] }]
+
+            },
+            map = new google.maps.Map(document.getElementById('map'), myOptions),
+            marker = new google.maps.Marker({ position: myLatLng, map: map });
+
+        marker.setMap(map);
+
+    }
+
+    initialize();
+
+
+
+    }, 700);
 });
 
 
@@ -67,6 +111,19 @@ $("nav#navigation ul li.sub > a").on("click", function (e) {
 });
 
 /********************************
+     Mobile Menu
+*******************************/
+
+$('.mobile a').on('click', function (e) {
+    e.preventDefault();
+
+    $('#navigation').toggleClass('not-active');
+    $('#navigation').toggleClass('active');
+    $('.mobile a i').toggleClass('fa-bars');
+    $('.mobile a i').toggleClass('fa-times')
+});
+
+/********************************
     Toggle Comments
  *******************************/
 
@@ -78,39 +135,66 @@ $('.comment-toggle').on('click', function (event) {
    
 });
 
-/********************************
-    Sidebar min height
- *******************************/
-$(document).ready(function () {
-    var windowHeight = $(window).height();
-    var headerHeight = $('header.header').height();
 
-    $('.sidebar').height(windowHeight - 195.3);
+/********************************
+    SoMe Share Buttons
+ *******************************/
+
+$('#twitter').sharrre({
+    share: { twitter: true },
+    url: 'http://www.paulund.co.uk',
+    enableHover: false,
+    enableTracking: true,
+    template: '<a href="#"><i class="fa fa-twitter"></i></a>',
+    buttons: { twitter: { via: 'renegadedreng' } },
+    click: function (api, options) {
+        api.simulateClick();
+        api.openPopup('twitter');
+    }
+});
+
+$('#facebook').sharrre({
+    share: { facebook: true },
+    url: 'http://www.paulund.co.uk',
+    enableHover: false,
+    enableTracking: true,
+    template: '<a href="#"><i class="fa fa-facebook"></i></a>',
+    click: function (api, options) {
+        api.simulateClick();
+        api.openPopup('facebook');
+    }
+});
+
+$('#google').sharrre({
+    share: {
+        linkedin: true
+    },
+    template: '<a href="#"><i class="fa fa-linkedin"></i></a>',
+    enableHover: false,
+    enableTracking: true,
+    click: function (api, options) {
+        api.simulateClick();
+        api.openPopup('linkedin');
+    }
+});
+
+/********************************
+    Accordion instantiate
+ *******************************/
+
+$(function ($) {
+
+    $(document).ready(function () {
+        $(".accordion").smk_Accordion({
+            closeAble: true
+        });
+    });
 
 });
 
 
-/********************************
-    Google Map
- *******************************/
 
-/*-- GOOGLE MAP --*/
 
-    $(".google-map").width("100%").height("400px").gmap3({
-        map: {
-            options: {
-                center: [51.5209564, 0.157134],
-                zoom: 15,
-                scrollwheel: false,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            }
-        },
-        marker: {
-            latLng: [51.5209564, 0.157134]
-        }
-    });
-
-/*-- GOOGLE MAP END --*/
 
 
 

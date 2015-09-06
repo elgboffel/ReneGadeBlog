@@ -33,30 +33,25 @@ section#page .page-content article header h6.meta a {
   background-color: #0f0;
   color: #fff;
   padding: 2px 5px;
-  margin: 0 3px;
+  margin: 0 6px 0 0;
   text-transform: uppercase;
 }
 section#page .page-content article header h6.meta span:first-child {
-  padding: 0 7px 0 0;
+  padding: 0 0 0 0;
 }
 section#page .page-content article header h6.meta span:last-child {
-  padding: 0 0 0 7px;
+  padding: 0 0 0 0;
 }
 section#page .page-content article header h6.meta span {
   padding: 0 7px;
 }
-section#page .page-content .tags ul li:first-child {
-  margin: 0 5px 0 0;
-}
-section#page .page-content .tags ul li:last-child {
-  margin: 0 0 0 5px;
-}
 section#page .page-content .tags ul li {
   display: inline-block;
-  margin: 0 5px;
+  margin: 0 5px 0 0;
 }
 section#page .page-content .tags ul li a {
   font-size: 16px;
+  line-height: 40px;
   font-weight: 400;
   background-color: #f1f1f1;
   padding: 5px 10px;

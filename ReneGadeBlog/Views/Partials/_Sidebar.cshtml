@@ -18,6 +18,9 @@
     }
     
     <aside>
+        <header>
+            <h2>Find mig på</h2>
+        </header>
         <div class="social-icons">
             <ul>
                 <li><a href="@root.facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
@@ -52,6 +55,22 @@
         </form>
     </aside>
 
+    @if (CurrentPage.Url == "/")
+    {
+    <aside>
+        <header>
+            <h2>Del</h2>
+        </header>
+        <div class="social-icons">
+            <ul>
+                <li id="twitter" data-url="http://www.renegade.works" data-title="Del på Twitter"></li>
+                <li id="facebook" data-url="http://www.renegade.works" data-title="Del på Facebook"></li>
+                <li id="google" data-url="http://www.renegade.works" data-title="Del på LinkedIn"></li>
+            </ul>
+        </div>
+    </aside>
+    }
+    
     @if (CurrentPage.Url != "/")
     {
 

@@ -23,6 +23,7 @@ a:focus,
 a:active,
 a:hover {
   outline: 0 none;
+  color: #333;
 }
 ul {
   padding: 0;
@@ -122,7 +123,7 @@ form button.button:hover {
 *********************/
 .page-container {
   float: right;
-  padding: 0 270px 0 0;
+  padding: 0 280px 0 0;
 }
 .page-container .container-outer {
   position: relative;
@@ -135,6 +136,16 @@ form button.button:hover {
 .page-container .container-outer .container-wrap {
   float: right;
   background-color: #f1f1f1;
+}
+@media only screen and (min-width: 1500px) {
+  .page-container {
+    padding: 0 30% 0 0;
+  }
+}
+@media only screen and (max-width: 995px) {
+  .page-container {
+    padding: 0 !important;
+  }
 }
 /*******************
     Btn
@@ -232,10 +243,131 @@ form button.button:hover {
   font-size: 16px !important;
   line-height: 20px;
 }
+/*******************
+    Accordion
+*********************/
+section.page .accordion {
+  padding: 0;
+  background-color: #fff;
+}
+section.page .accordion .inner {
+  padding: 35px;
+}
+section.page .accordion .acc_head {
+  position: relative;
+}
+section.page .accordion .acc_head h3 {
+  margin: 30px 0 0 0;
+}
+section.page .accordion .acc_head .line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 150px;
+  background-color: #333;
+  -webkit-transition: all 300ms linear;
+  -moz-transition: all 300ms linear;
+  -o-transition: all 300ms linear;
+  -ms-transition: all 300ms linear;
+  transition: all 300ms linear;
+}
+section.page .accordion .acc_head:hover {
+  color: #0f0;
+}
+section.page .accordion .acc_head:hover .line {
+  background-color: #0f0;
+  width: 100%;
+}
+section.page .accordion .acc_content {
+  padding: 15px 45px;
+}
+section.page .accordion .acc_content p {
+  font-size: 16px;
+  font-weight: 300;
+  margin: 0;
+}
+section.page .accordion .acc_content a {
+  font-size: 16px;
+  font-weight: 300;
+  -moz-text-decoration-line: underline !important;
+  text-decoration-line: underline !important;
+}
+section.page .accordion .acc_content a:hover {
+  color: #0f0;
+}
+section.page .accordion .acc_active .acc_head {
+  color: #0f0;
+}
+section.page .accordion .acc_active .acc_head .line {
+  background-color: #0f0;
+  width: 100%;
+}
+section.page .accordion .acc_active .acc_content {
+  border-color: #0f0;
+}
+.smk_accordion {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.smk_accordion .accordion_in {
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.smk_accordion .accordion_in .acc_head {
+  position: relative;
+  padding: 20px;
+  text-align: left;
+  font-size: 16px;
+  line-height: 28px;
+  display: block;
+  cursor: pointer;
+  -webkit-transition: all 300ms linear;
+  -moz-transition: all 300ms linear;
+  -o-transition: all 300ms linear;
+  -ms-transition: all 300ms linear;
+  transition: all 300ms linear;
+}
+.smk_accordion .accordion_in .acc_head:after {
+  content: "\f107";
+  font-family: 'FontAwesome';
+  font-size: 20px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  height: 15px;
+  line-height: 15px;
+  position: absolute;
+  right: 10px;
+  top: 55%;
+  text-align: center;
+  text-transform: none;
+  -webkit-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
+  -moz-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
+  -o-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
+  transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
+  width: 15px;
+}
+.smk_accordion .accordion_in.acc_active > .acc_head:after {
+  content: "\f106";
+}
+.smk_accordion .accordion_in.acc_active > .acc_content {
+  display: block;
+}
 #navigation {
   position: fixed;
   top: 0;
-  right: 35px;
+  right: 40px;
+  z-index: 999;
+}
+@media only screen and (min-width: 1500px) {
+  #navigation {
+    right: 15%;
+  }
 }
 #navigation .nav-inner {
   position: relative;
@@ -247,30 +379,33 @@ form button.button:hover {
   width: 100%;
   height: 75px;
   display: block;
+  text-align: center;
+}
+#navigation .logo a:hover h1 {
+  color: #333;
 }
 #navigation .logo h1 {
-  position: absolute;
+  position: relative;
   text-transform: uppercase;
   font-size: 22px;
+  line-height: 30px;
   font-weight: 700;
-  top: 12px;
-  right: 20px;
-  padding: 0;
+  top: 10px;
+  padding: 0 0 6px 0;
   margin: 0;
 }
 #navigation .logo img {
-  position: absolute;
-  top: 20px;
-  left: 15px;
-  width: 22px;
+  position: relative;
+  top: -2px;
+  width: 12px;
   margin: 0;
+  padding: 0;
 }
 #navigation .logo h2 {
-  position: absolute;
+  position: relative;
   text-transform: uppercase;
-  top: 42px;
-  right: 20px;
-  font-size: 11.6px;
+  font-size: 13.1px;
+  line-height: 16px;
   font-weight: 700;
   color: #9f9f9f;
   margin: 0;
@@ -292,7 +427,7 @@ form button.button:hover {
 #navigation ul {
   list-style: none;
   margin: 0;
-  padding: 15px 0;
+  padding: 20px 0;
 }
 #navigation ul li.current {
   background-color: #0f0;
@@ -376,6 +511,53 @@ form button.button:hover {
   -o-transform: translateX(0);
   transform: translateX(0);
 }
+.mobile {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  color: #333;
+  font-size: 30px;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 5px 15px;
+  z-index: 9999;
+}
+.mobile:hover a {
+  color: #0f0;
+}
+.mobile:hover a i {
+  color: #0f0;
+}
+@media only screen and (max-width: 995px) {
+  .mobile {
+    display: block;
+  }
+  #navigation {
+    right: 0;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+  }
+  #navigation.not-active {
+    -moz-transform: translateX(200px);
+    -ms-transform: translateX(200px);
+    -o-transform: translateX(200px);
+    -webkit-transform: translateX(200px);
+    transform: translateX(200px);
+  }
+  #navigation.active {
+    -moz-transform: translateX(0px);
+    -ms-transform: translateX(0px);
+    -o-transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+  #navigation .nav-inner {
+    height: 100vh;
+    overflow: scroll;
+  }
+}
 /* Sidebar */
 .sidebar {
   background-color: #f1f1f1;
@@ -391,6 +573,7 @@ form button.button:hover {
 }
 .sidebar .inner aside p {
   font-size: 16px;
+  margin-bottom: 0;
 }
 .sidebar .inner aside.search form {
   position: relative;
@@ -445,62 +628,68 @@ form button.button:hover {
   position: relative;
   float: right;
 }
+.sidebar .inner aside.recent-posts h3 {
+  margin: 20px 0 0 0;
+}
+.sidebar .inner aside.recent-posts p {
+  margin: 5px 0 7px 0;
+}
 .sidebar .inner aside.recent-posts .post:hover a {
   color: #333;
 }
-section#frontpage {
+section.page {
   /* Comments*/
 }
-section#frontpage header.header {
+section.page header.header {
   color: #fff;
   padding: 35px 50px;
 }
-section#frontpage header.header h1 {
+section.page header.header h1 {
   font-weight: 400;
 }
-section#frontpage header.header h2 {
+section.page header.header h2 {
   font-weight: 300;
 }
-section#frontpage .list-items {
+section.page .list-items {
   padding: 0;
   background-color: #fff;
 }
-section#frontpage .list-items aside.post {
+section.page .list-items aside.post {
   padding: 25px 30px;
   -moz-transition: all 0.2s ease-in-out 0s;
   -o-transition: all 0.2s ease-in-out 0s;
   -webkit-transition: all 0.2s ease-in-out 0s;
   transition: all 0.2s ease-in-out 0s;
 }
-section#frontpage .list-items aside.post:hover {
+section.page .list-items aside.post:hover {
   background-color: #f1f1f1;
 }
-section#frontpage .list-items aside.post:hover .comment {
+section.page .list-items aside.post:hover .comment {
   background-color: #fff;
 }
-section#frontpage .list-items aside.post:hover .comment::before {
+section.page .list-items aside.post:hover .comment::before {
   border-right: 15px solid #fff;
 }
-section#frontpage .list-items aside.post h6 {
+section.page .list-items aside.post h6 {
   margin: 0;
   color: #333;
   font-size: 13px;
 }
-section#frontpage .list-items aside.post h6 a {
+section.page .list-items aside.post h6 a {
   background-color: #0f0;
   color: #fff;
   padding: 2px 5px;
   margin: 0 3px;
 }
-section#frontpage .list-items aside.post h3 {
+section.page .list-items aside.post h3 {
   font-size: 21px;
   line-height: 23px;
   color: #333;
 }
-section#frontpage .list-items aside.post h3:hover {
+section.page .list-items aside.post h3:hover {
   color: #333;
 }
-section#frontpage .list-items aside.post a {
+section.page .list-items aside.post a {
   color: #333;
   font-weight: 700;
   text-transform: uppercase;
@@ -509,10 +698,10 @@ section#frontpage .list-items aside.post a {
   -webkit-transition: all 0.2s ease-in-out 0s;
   transition: all 0.2s ease-in-out 0s;
 }
-section#frontpage .list-items aside.post a:hover {
+section.page .list-items aside.post a:hover {
   color: #fff;
 }
-section#frontpage .comment-hide {
+section.page .comment-hide {
   display: none;
 }
 section#page {
@@ -550,30 +739,25 @@ section#page .page-content article header h6.meta a {
   background-color: #0f0;
   color: #fff;
   padding: 2px 5px;
-  margin: 0 3px;
+  margin: 0 6px 0 0;
   text-transform: uppercase;
 }
 section#page .page-content article header h6.meta span:first-child {
-  padding: 0 7px 0 0;
+  padding: 0 0 0 0;
 }
 section#page .page-content article header h6.meta span:last-child {
-  padding: 0 0 0 7px;
+  padding: 0 0 0 0;
 }
 section#page .page-content article header h6.meta span {
   padding: 0 7px;
 }
-section#page .page-content .tags ul li:first-child {
-  margin: 0 5px 0 0;
-}
-section#page .page-content .tags ul li:last-child {
-  margin: 0 0 0 5px;
-}
 section#page .page-content .tags ul li {
   display: inline-block;
-  margin: 0 5px;
+  margin: 0 5px 0 0;
 }
 section#page .page-content .tags ul li a {
   font-size: 16px;
+  line-height: 40px;
   font-weight: 400;
   background-color: #f1f1f1;
   padding: 5px 10px;
@@ -596,8 +780,11 @@ section#page .page-content .page-comments p {
   font-weight: 300;
   margin: 0 0 15px 0;
 }
-section#contact-page header.header {
+section#contact-page .google-map {
   padding: 0;
+}
+section#contact-page .google-map #map {
+  height: 400px;
 }
 section#contact-page .container-wrap {
   background-color: #fff;
